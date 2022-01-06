@@ -1,0 +1,36 @@
+plugins {
+    id 'com.android.library'
+}
+
+def androidVersion = rootProject.ext.android
+def config = rootProject.ext.dependencies
+android {
+    compileSdk androidVersion.compileSdk
+
+    defaultConfig {
+        minSdk androidVersion.minSdk
+        targetSdk androidVersion.targetSdk
+        versionCode androidVersion.versionCode
+        versionName androidVersion.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    config.each {
+        api(it)
+    }
+}
