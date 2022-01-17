@@ -27,6 +27,13 @@
             android:text="RecycleView SlideCard" />
 
 
+        <Button
+            android:id="@+id/network"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="network请求" />
+
+
     </LinearLayout>
 
 

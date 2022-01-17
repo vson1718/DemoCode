@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 rootProject.name = "DemoCode-Android"
 include ':app'
 include ':uikit'
+include ':network'
